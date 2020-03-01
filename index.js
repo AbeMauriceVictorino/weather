@@ -19,6 +19,7 @@ app.post("/", function(req, res) {
         console.log(req.body.zipInput);
     
     //build up the URL for the JSON query, API Key is // secret and needs to be obtained by signup 
+        const
         const units = "imperial";
         const apiKey = "cf0999ec010f30d149806a26e452653f";
         const url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip +  "&units=" + units + "&APPID=" + apiKey;
@@ -39,6 +40,7 @@ app.post("/", function(req, res) {
             // displays the output of the results
             res.write("<h1> The weather is " + weatherDescription + "<h1>");
             res.write("<h2>The Temperature in " + city + " " + zip + " is " + temp + " Degrees Fahrenheit<h2>");
+            
             res.write("<img src=" + imageURL +">");
             res.send();
         });
