@@ -35,6 +35,8 @@ app.post("/", function(req, res) {
             const humidity = weatherData.main.humidity;
             const windSpeed = weatherData.wind.speed;
             const weatherDescription = weatherData.weather[0].description; 
+            const temp_max = weatherData.main.temp_max; 
+            const temp_min = weatherData.main.temp_min;
             const icon = weatherData.weather[0].icon;
             const imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png"; 
             
@@ -43,8 +45,8 @@ app.post("/", function(req, res) {
             res.write("<h2> The Temperature in " + city + " is " + temp + "Degrees Fahrenheit" + "<h2>");
             res.write("<h3>The Humidity is" + humidity + "<h3>");
             res.write("<h4> The Wind Speed is " + windSpeed + "<h4>");
-            
-          
+             res.write("<h5> The max temp is " + temp_max + "<h5>");
+             res.write("<h5> The min temp is " + temp_min + "<h5>");
             res.write("<img src=" + imageURL +">");
             res.send();
         });
@@ -54,6 +56,6 @@ app.post("/", function(req, res) {
 
 //Commented out these lines in Repl
 //Uncomment these lines when running on laptop
-app.listen(process.env.PORT || 3001, function() {
-console.log ("Server is running on port")
+app.listen(3000, function() {
+console.log ("Server is running on port //3000")
 });
